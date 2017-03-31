@@ -1,0 +1,26 @@
+<%= simple_form_for(@post) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :body, as: :ckeditor %>
+    <%= f.input :tags, hint: 'Separate tags with comma' %>
+    <%= f.input :slug %>
+    <%= f.input :visibility, collection: Post::VISIBILITY, prompt: 'Visibility' %>
+    <%= f.input :draft, wrapper: :ui_checkbox %>
+    <%= f.input :published_at, as: :datetime, html5: true, placeholder: 'YYYY-MM-DD', hint: 'YYYY-MM-DD' %>
+    <%= f.input :featured_image, as: :file %>
+    <%= f.input :description, hint: 'SEO' %>
+    <%= f.input :keywords, hint: 'SEO. Separate keywords with comma' %>
+  </div>
+
+  <br />
+
+  <div class="form-actions">
+    <div class="ui buttons">
+      <%= link_to 'Back', request.referer.present? ? request.referer : root_path, class: 'ui button' %>
+      <div class="or"></div>
+      <%= f.button :submit, class: 'ui positive button' %>
+    </div>
+  </div>
+<% end %>

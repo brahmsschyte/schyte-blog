@@ -1,0 +1,31 @@
+<% provide(:description, "Ketapot Blog") %>
+<% provide(:keywords, "ketapot, blog") %>
+
+<div class="ui breadcrumb">
+  <%= link_to_active "Home", root_path, class: "section" %>
+  <i class="right chevron icon divider"></i>
+  <div class="active section">Blog</div>
+</div>
+
+<h1 class="ui header">
+  <%= title 'Blog' %>
+</h1>
+
+<div class="ui divider"></div>
+
+<% if params[:q].present? %>
+  <p>
+    Searching for <strong><%= params[:q][:title_or_body_or_tags_cont] %></strong>.
+    <%= page_entries_info @posts, entry_name: 'post' %>.
+  </p>
+<% else %>
+  <% page_entries_info @posts %>
+<% end %>
+
+<%= render partial: 'posts/post', collection: @posts %>
+
+<div class="ui divider"></div>
+
+<%= paginate @posts %>
+
+<!-- <script id="dsq-count-scr" src="//ketapot.disqus.com/count.js" async></script> -->

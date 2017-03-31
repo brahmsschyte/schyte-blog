@@ -1,0 +1,23 @@
+<%= simple_form_for(@user) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :email %>
+    <%= f.input :title, collection: User::TITLE, prompt: 'Title' %>
+    <%= f.input :phone %>
+    <%= f.input :telegram %>
+    <%= f.input :password %>
+    <%= f.input :password_confirmation %>
+  </div>
+
+  <br />
+
+  <div class="form-actions">
+    <div class="ui buttons">
+      <%= link_to 'Back', :back, class: 'ui button' %>
+      <div class="or"></div>
+      <%= f.button :submit, class: 'ui positive button' %>
+    </div>
+  </div>
+<% end %>

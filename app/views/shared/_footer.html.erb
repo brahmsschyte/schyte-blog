@@ -1,0 +1,41 @@
+<div class="ui inverted vertical footer segment">
+  <div class="ui container">
+    <div class="ui stackable inverted divided equal height stackable grid">
+      <div class="three wide column">
+        <h4 class="ui inverted header">About</h4>
+        <div class="ui inverted link list">
+          <a href="/sitemap.xml.gz" class="item">Sitemap</a>
+          <%= link_to "Home", root_path, class: "item" %>
+          <%= link_to "Portfolio", portfolio_path, class: "item" %>
+          <%= link_to "Blog", blog_path, class: "item" %>
+        </div>
+      </div>
+      <div class="three wide column">
+        <h4 class="ui inverted header">Services</h4>
+        <div class="ui inverted link list">
+          <a href="#" class="item">Design</a>
+          <a href="#" class="item">Ruby/Rails</a>
+        </div>
+      </div>
+      <div class="seven wide column">
+        <h4 class="ui inverted header">Contact</h4>
+        <div class="ui inverted link list">
+          <%= mail_to social_email, class: 'item' do %>
+            <i class="mail icon"></i>
+            <%= social_email %>
+          <% end %>
+          <a href="#" class="item"><i class="whatsapp icon"></i> <%= social_whatsup %></a>
+          <% social_network.each do |key,value| %>
+            <%= link_to value['url'], class: "item" do %>
+              <i class="<%= key %> icon"></i>
+              <%= value['handle'] %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <br />
+    <%= image_tag 'web_hi_res_512.png', class: 'ui centered mini image' %>
+    <p id="copyright">© <%= Time.zone.now.year %> <%= site_footer %></p>
+  </div>
+</div>

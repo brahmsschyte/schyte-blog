@@ -1,0 +1,20 @@
+<div class="ui vertical menu">
+  <div class="item">
+    <%= search_form_for @q, url: blog_path do |f| %>
+      <div class="ui transparent icon input">
+        <%= f.search_field :title_or_body_or_tags_cont, class: "prompt", placeholder: "Search..." %>
+      </div>
+    <% end %>
+  </div>
+  <div class="item">
+    <div class="header">Recent Posts</div>
+    <div class="menu">
+      <% @posts.recent.each do |post| %>
+        <%= link_to truncate(post.title), blog_post_path(post), class: "item" %>
+      <% end %>
+    </div>
+  </div>
+  <%= link_to "Home", root_path, class: "item" %>
+  <%= link_to "Portfolio", portfolio_path, class: "item" %>
+  <%= link_to "Blog", blog_path, class: "item" %>
+</div>

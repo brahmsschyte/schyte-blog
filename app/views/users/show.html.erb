@@ -1,0 +1,37 @@
+<p>
+  <strong>Name:</strong>
+  <%= title @user.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @user.title %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @user.phone %>
+</p>
+
+<p>
+  <strong>Telegram:</strong>
+  <%= @user.telegram %>
+</p>
+
+<p>
+  <strong>Created:</strong>
+  <%= @user.created_at.strftime('%-d %b %Y, %I:%M %P') if @user.created_at %>
+</p>
+
+<p>
+  <strong>Updated:</strong>
+  <%= @user.updated_at.strftime('%-d %b %Y, %I:%M %P') if @user.updated_at %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

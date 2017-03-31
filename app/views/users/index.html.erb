@@ -1,0 +1,56 @@
+<div class="ui text menu">
+  <h1 class="header item"><%= title 'Users' %></h1>
+  <%= link_to 'New User', new_user_path, class: 'item' %>
+  <div class="right menu">
+    <div class="ui right aligned category search item">
+      <%= search_form_for @q do |f| %>
+        <div class="ui transparent icon input">
+          <%= f.search_field :name_or_email_or_title_or_phone_or_telegram_cont, class: "prompt", placeholder: "Search..." %>
+          <i class="search icon"></i>
+        </div>
+      <% end %>
+      <div class="results"></div>
+    </div>
+  </div>
+</div>
+
+<p><%= page_entries_info @users, entry_name: 'user' %></p>
+<%= paginate @users %>
+
+<table class="ui selectable very basic table">
+  <thead>
+    <tr>
+      <th><%= sort_link(@q, :name) %></th>
+      <th><%= sort_link(@q, :email) %></th>
+      <th><%= sort_link(@q, :title) %></th>
+      <th><%= sort_link(@q, :phone) %></th>
+      <th><%= sort_link(@q, :telegram) %></th>
+      <th colspan="6"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.title %></td>
+        <td><%= user.phone %></td>
+        <td><%= user.telegram %></td>
+        <td>
+          <%= link_to user, class: 'ui small primary icon button' do %>
+            <i class="search icon"></i>
+          <% end %>
+          <%= link_to edit_user_path(user), class: 'ui small primary icon button' do %>
+            <i class="edit icon"></i>
+          <% end %>
+          <%= link_to user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui small negative icon button' do %>
+            <i class="trash icon"></i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @users %>

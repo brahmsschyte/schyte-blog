@@ -1,0 +1,23 @@
+<%= simple_form_for(@setting) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.simple_fields_for :config, OpenStruct.new(@setting.config) do |ff| %>
+      <%= ff.input :site_title %>
+      <%= ff.input :site_description %>
+      <%= ff.input :site_keywords %>
+      <%= ff.input :site_footer %>
+      <%= ff.input :google_analytics_tracking_id %>
+    <% end %>
+  </div>
+
+  <br />
+
+  <div class="form-actions">
+    <div class="ui buttons">
+      <%= link_to 'Back', :back, class: 'ui button' %>
+      <div class="or"></div>
+      <%= f.button :submit, class: 'ui positive button' %>
+    </div>
+  </div>
+<% end %>

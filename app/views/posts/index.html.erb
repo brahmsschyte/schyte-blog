@@ -1,0 +1,58 @@
+<div class="ui text menu">
+  <h1 class="header item"><%= title 'Posts' %></h1>
+  <%= link_to 'New Post', new_post_path, class: 'item' %>
+  <div class="right menu">
+    <div class="ui right aligned category search item">
+      <%= search_form_for @q do |f| %>
+        <div class="ui transparent icon input">
+          <%= f.search_field :title_or_body_or_tags_or_visibility_or_user_name_cont, class: "prompt", placeholder: "Search..." %>
+          <i class="search icon"></i>
+        </div>
+      <% end %>
+      <div class="results"></div>
+    </div>
+  </div>
+</div>
+
+<p><%= page_entries_info @posts, entry_name: 'post' %></p>
+<%= paginate @posts %>
+
+<table class="ui selectable very basic table">
+  <thead>
+    <tr>
+      <th><%= sort_link(@q, :title) %></th>
+      <th><%= sort_link(@q, :tags) %></th>
+      <th><%= sort_link(@q, :slug) %></th>
+      <th><%= sort_link(@q, :visibility) %></th>
+      <th><%= sort_link(@q, :draft) %></th>
+      <th><%= sort_link(@q, :published_at, 'Published') %></th>
+      <th colspan="7"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= truncate post.tags %></td>
+        <td><%= truncate post.slug %></td>
+        <td><%= post.visibility %></td>
+        <td><%= post.draft ? '<i class="checkmark icon"></i>'.html_safe : nil %></td>
+        <td><%= post.published_at.strftime('%-d %b %Y, %I:%M %P') if post.published_at %></td>
+        <td>
+          <%= link_to post, class: 'ui small primary icon button' do %>
+            <i class="search icon"></i>
+          <% end %>
+          <%= link_to edit_post_path(post), class: 'ui small primary icon button' do %>
+            <i class="edit icon"></i>
+          <% end %>
+          <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui small negative icon button' do %>
+            <i class="trash icon"></i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @posts %>

@@ -1,0 +1,15 @@
+<h2 class="ui header">
+  <%= link_to post.title, blog_post_path(post) %>
+  <div class="sub header">
+    Authored by <%= post.user.name %>,
+    Published at <%= post.published_at.strftime('%-d %b %Y, %I:%M %P') if post.published_at %>
+  </div>
+</h2>
+
+<p><%= truncate(strip_tags(post.body), length: 255) { link_to 'Read More...', blog_post_path(post) } %></p>
+
+<% post.tags.split(',').each do |tag| %>
+  <a href="#" class="ui small tag label">
+    <%= tag.strip %>
+  </a>
+<% end %>

@@ -1,0 +1,32 @@
+<% provide(:title, "Forgot your password?") %>
+
+<div class="ui middle aligned center aligned grid">
+  <div class="column">
+    <h2 class="ui teal image header">
+      <%= image_tag 'web_hi_res_512.png', class: 'image' %>
+      <div class="content">
+        Forgot your password?
+      </div>
+    </h2>
+    <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), class: 'large', html: { method: :post }) do |f| %>
+      <div class="ui stacked segment">
+        <%= f.input :email, label: false do %>
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            <%= f.input_field :email, required: false, autofocus: true, placeholder: 'E-mail address' %>
+          </div>
+        <% end %>
+        <%= f.button :submit, "Send me reset password instructions", class: 'ui fluid large teal submit button' %>
+      </div>
+
+      <div class="ui error message">
+        <%= f.error_notification %>
+      </div>
+
+    <% end %>
+
+    <div class="ui message">
+      <%= render "users/shared/links" %>
+    </div>
+  </div>
+</div>

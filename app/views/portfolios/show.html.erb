@@ -1,0 +1,119 @@
+<p>
+  <strong>Title:</strong>
+  <%= @portfolio.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @portfolio.description %>
+</p>
+
+<p>
+  <strong>Keywords:</strong>
+  <%= @portfolio.keywords %>
+</p>
+
+<p>
+  <strong>Photo:</strong>
+  <%= image_tag @portfolio.photo if @portfolio.photo %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @portfolio.name %>
+</p>
+
+<p>
+  <strong>Job:</strong>
+  <%= @portfolio.job %>
+</p>
+
+<p>
+  <strong>Overview:</strong>
+  <%= @portfolio.overview %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @portfolio.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @portfolio.phone %>
+</p>
+
+<p>
+  <strong>Social:</strong>
+  <%= @portfolio.social %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @portfolio.address %>
+</p>
+
+<p>
+  <strong>Address Line 1:</strong>
+  <%= @portfolio.address_line1 %>
+</p>
+
+<p>
+  <strong>Address Line 2:</strong>
+  <%= @portfolio.address_line2 %>
+</p>
+
+<p>
+  <strong>Skills:</strong>
+</p>
+
+<table class="ui selectable very basic single line table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Mastery</th>
+      <th>Info</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @portfolio.skills.each do |skill| %>
+      <tr>
+        <td><%= skill.name %></td>
+        <td><%= skill.mastery %></td>
+        <td><%= truncate skill.info %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p>
+  <strong>Projects:</strong>
+</p>
+
+<table class="ui selectable very basic single line table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Timeline</th>
+      <th>Info</th>
+      <th>Featured Image</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @portfolio.projects.each do |project| %>
+      <tr>
+        <td><%= project.name %></td>
+        <td><%= project.timeline %></td>
+        <td><%= truncate project.info %></td>
+        <td><%= image_tag project.featured_image if project.featured_image %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_profile_path(@portfolio) %> |
+<%= link_to 'Back', root_path %>

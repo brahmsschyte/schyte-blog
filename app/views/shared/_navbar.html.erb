@@ -1,0 +1,18 @@
+<div class="ui top inverted icon fixed menu">
+  <div class="ui container">
+    <a href="/" class="header item">
+      <%= site_title %>
+    </a>
+    <div class="right menu">
+      <% if user_signed_in? %>
+        <div class="ui dropdown item">
+          <%= current_user.name %>
+          <div class="menu">
+            <%= link_to "Account", edit_user_registration_path, class: "item" %>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "item" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

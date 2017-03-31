@@ -1,0 +1,30 @@
+<% provide(:description, @post.description) %>
+<% provide(:keywords, @post.keywords) %>
+
+<div class="ui breadcrumb">
+  <%= link_to_active "Home", root_path, class: "section" %>
+  <i class="right chevron icon divider"></i>
+  <%= link_to_active "Blog", blog_path, class: "section" %>
+  <i class="right arrow icon divider"></i>
+  <div class="active section"><%= @post.title %></div>
+</div>
+
+<h1 class="ui header">
+  <%= title @post.title %>
+  <div class="sub header">
+    Authored by <%= @post.user.name %>,
+    Published at <%= @post.published_at.strftime('%-d %b %Y, %I:%M %P') if @post.published_at %>
+  </div>
+</h1>
+
+<div class="ui divider"></div>
+
+<%= sanitize @post.body %>
+
+<% @post.tags.split(',').each do |tag| %>
+  <a href="#" class="ui small tag label">
+    <%= tag.strip %>
+  </a>
+<% end %>
+
+<%= render 'posts/disqus' %>

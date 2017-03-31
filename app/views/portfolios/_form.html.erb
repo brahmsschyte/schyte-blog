@@ -1,0 +1,47 @@
+<%= simple_form_for(@portfolio, url: profile_path(@portfolio)) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :description, hint: 'SEO' %>
+    <%= f.input :keywords, hint: 'SEO. Separate keywords with comma' %>
+    <%= f.input :photo, as: :file %>
+    <%= f.input :name %>
+    <%= f.input :job %>
+    <%= f.input :overview, as: :ckeditor %>
+    <%= f.input :email %>
+    <%= f.input :phone %>
+    <%= f.input :social %>
+    <%= f.input :address %>
+    <%= f.input :address_line1 %>
+    <%= f.input :address_line2 %>
+    <h4 class="ui dividing header">Skills</h4>
+    <div id='skills'>
+      <%= f.simple_fields_for :skills do |builder| %>
+        <%= render 'skill_fields', f: builder %>
+      <% end %>
+      <div class='links'>
+        <%= link_to_add_association 'Add Skill', f, :skills, class: 'ui button' %>
+      </div>
+    </div>
+    <h4 class="ui dividing header">Projects</h4>
+    <div id='projects'>
+      <%= f.simple_fields_for :projects do |builder| %>
+        <%= render 'project_fields', f: builder %>
+      <% end %>
+      <div class='links'>
+        <%= link_to_add_association 'Add Project', f, :projects, class: 'ui button' %>
+      </div>
+    </div>
+  </div>
+
+  <br />
+
+  <div class="form-actions">
+    <div class="ui buttons">
+      <%= link_to 'Back', request.referer.present? ? request.referer : root_path, class: 'ui button' %>
+      <div class="or"></div>
+      <%= f.button :submit, class: 'ui positive button' %>
+    </div>
+  </div>
+<% end %>

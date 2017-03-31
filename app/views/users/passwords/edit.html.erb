@@ -1,0 +1,40 @@
+<% provide(:title, "Change your password") %>
+
+<div class="ui middle aligned center aligned grid">
+  <div class="column">
+    <h2 class="ui teal image header">
+      <%= image_tag 'web_hi_res_512.png', class: 'image' %>
+      <div class="content">
+        Change your password
+      </div>
+    </h2>
+    <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), class: 'large', html: { method: :put }) do |f| %>
+      <div class="ui stacked segment">
+        <%= f.input :reset_password_token, as: :hidden %>
+        <%= f.input :password, label: false do %>
+          <div class="ui left icon input">
+            <i class="lock icon"></i>
+            <%= f.input_field :password, required: false, placeholder: 'New password', required: true, autofocus: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+          </div>
+        <% end %>
+        <%= f.input :password_confirmation, label: false do %>
+          <div class="ui left icon input">
+            <i class="lock icon"></i>
+            <%= f.input_field :password_confirmation, required: true, placeholder: 'Confirm your new password' %>
+          </div>
+        <% end %>
+        <%= f.button :submit, "Change my password", class: 'ui fluid large teal submit button' %>
+      </div>
+
+      <div class="ui error message">
+        <%= f.error_notification %>
+        <%= f.full_error :reset_password_token %>
+      </div>
+
+    <% end %>
+
+    <div class="ui message">
+      <%= render "users/shared/links" %>
+    </div>
+  </div>
+</div>

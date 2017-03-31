@@ -1,0 +1,8 @@
+<div class="ui secondary vertical pointing menu">
+  <%= link_to_active "Home", root_path, class: "item" %>
+  <%= link_to_active "Posts", posts_path, class: "item" %>
+  <%= link_to_active "Users", users_path, class: "item" %>
+  <%= link_to_active "Portfolio", profile_path('main'), class: "item" %>
+  <%= link_to_active "Global Settings", edit_setting_path('global'), class: "item" %>
+  <%= link_to_active "Social Settings", edit_setting_path('social'), class: "item" %>
+</div>

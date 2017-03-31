@@ -1,0 +1,61 @@
+<%= simple_form_for(@setting) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.simple_fields_for :config, OpenStruct.new(@setting.config) do |ff| %>
+      <%= ff.input :email %>
+      <%= ff.input :whatsup %>
+      <%= ff.simple_fields_for :network, OpenStruct.new(@setting.config['network']) do |fff| %>
+        <h4 class="ui dividing header">Github</h4>
+        <%= fff.simple_fields_for :github, OpenStruct.new(@setting.config['network']['github']) do |ffff| %>
+          <div class="two fields">
+            <div class="field">
+              <%= ffff.label :handle %>
+              <%= ffff.input_field :handle %>
+            </div>
+            <div class="field">
+              <%= ffff.label :url %>
+              <%= ffff.input_field :url %>
+            </div>
+          </div>
+        <% end %>
+        <h4 class="ui dividing header">Facebook</h4>
+        <%= fff.simple_fields_for :facebook, OpenStruct.new(@setting.config['network']['facebook']) do |ffff| %>
+          <div class="two fields">
+            <div class="field">
+              <%= ffff.label :handle %>
+              <%= ffff.input_field :handle %>
+            </div>
+            <div class="field">
+              <%= ffff.label :url %>
+              <%= ffff.input_field :url %>
+            </div>
+          </div>
+        <% end %>
+        <h4 class="ui dividing header">Twitter</h4>
+        <%= fff.simple_fields_for :twitter, OpenStruct.new(@setting.config['network']['twitter']) do |ffff| %>
+          <div class="two fields">
+            <div class="field">
+              <%= ffff.label :handle %>
+              <%= ffff.input_field :handle %>
+            </div>
+            <div class="field">
+              <%= ffff.label :url %>
+              <%= ffff.input_field :url %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <br />
+
+  <div class="form-actions">
+    <div class="ui buttons">
+      <%= link_to 'Back', :back, class: 'ui button' %>
+      <div class="or"></div>
+      <%= f.button :submit, class: 'ui positive button' %>
+    </div>
+  </div>
+<% end %>
