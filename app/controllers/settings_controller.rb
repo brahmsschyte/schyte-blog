@@ -24,7 +24,7 @@ class SettingsController < ApplicationController
     end
 
     def setting_params
-      params.require(:setting).permit(config: [:site_title, :site_description, :site_footer, :email, :whatsup, network: [github: [:handle, :url], facebook: [:handle, :url], twitter: [:handle, :url]]])
+      params.require(:setting).permit(config: [:site_title, :site_description, :site_keywords, :site_footer, :google_analytics_tracking_id, :email, :whatsup, network: [github: [:handle, :url], facebook: [:handle, :url], twitter: [:handle, :url]]])
     end
 
     def authorize_user
