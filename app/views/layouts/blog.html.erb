@@ -28,14 +28,15 @@
     <%= render "shared/navbar" %>
     <div class="pusher">
       <div class="ui grid container">
+        <%= yield(:cover) %>
         <div class="thirteen wide column">
-          <div id="content" class="ui fluid container">
+          <div class="ui fluid container">
             <%= render "shared/message" %>
             <%= yield %>
             <%= debug(params) if Rails.env.development? %>
           </div>
         </div>
-        <div id="sidebar" class="three wide column">
+        <div class="three wide column">
           <%= render "shared/sidebar" %>
         </div>
       </div>

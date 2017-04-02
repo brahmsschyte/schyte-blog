@@ -13,3 +13,4 @@ Rails.application.config.assets.version = '1.0'
   Rails.application.config.assets.precompile += ["#{c}.coffee", "#{c}.scss"]
 end
 Rails.application.config.assets.precompile += %w( main.scss portfolio.scss scaffold.scss )
+Rails.application.config.assets.precompile += %w( ckeditor/* )

@@ -30,7 +30,7 @@
 
 <p>
   <strong>Featured Image:</strong>
-  <%= image_tag @post.featured_image if @post.featured_image %>
+  <%= image_tag @post.featured_image.url, class: "ui small image" %>
 </p>
 
 <p>

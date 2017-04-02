@@ -1,10 +1,11 @@
 <div class="ui top inverted icon fixed menu">
   <div class="ui container">
-    <a href="/" class="header item">
+    <%= link_to admin_path, class: "header item" do %>
       <%= site_title %>
-    </a>
-    <div class="right menu">
-      <% if user_signed_in? %>
+    <% end %>
+    <% if user_signed_in? %>
+      <%= link_to "Preview", main_path, class: "item" %>
+      <div class="right menu">
         <div class="ui dropdown item">
           <%= current_user.name %>
           <div class="menu">
@@ -12,7 +13,7 @@
             <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "item" %>
           </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>

@@ -15,7 +15,7 @@
 
 <p>
   <strong>Photo:</strong>
-  <%= image_tag @portfolio.photo if @portfolio.photo %>
+  <%= image_tag @portfolio.photo.url, class: "ui small image" %>
 </p>
 
 <p>
@@ -109,7 +109,7 @@
         <td><%= project.name %></td>
         <td><%= project.timeline %></td>
         <td><%= truncate project.info %></td>
-        <td><%= image_tag project.featured_image if project.featured_image %></td>
+        <td><%= image_tag project.featured_image.url, class: "ui small image" %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,7 +1,7 @@
 <% provide(:description, @portfolio.description) %>
 <% provide(:keywords, @portfolio.keywords) %>
 
-<div class="ui vertical stripe segment" style="margin-top: 4em;">
+<div id="content" class="ui vertical stripe segment"">
   <div class="ui middle aligned stackable grid container">
     <div class="ui breadcrumb">
       <%= link_to_active "Home", root_path, class: "section" %>
@@ -20,7 +20,7 @@
                 <a class="ui left corner label">
                   <i class="heart icon"></i>
                 </a>
-                <img src="/images/wireframe/image.png">
+                <%= image_tag @portfolio.photo.url %>
               </div>
               <div class="content">
                 <a class="ui red right ribbon label">Overview</a>
@@ -87,7 +87,7 @@
           <div class="four wide column">
             <div class="ui link fluid card">
               <div class="image">
-                <%= image_tag project.featured_image if project.featured_image %>
+                <%= image_tag project.featured_image.url %>
               </div>
               <div class="content">
                 <div class="header"><%= project.name %></div>

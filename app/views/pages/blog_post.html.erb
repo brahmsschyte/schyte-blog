@@ -1,5 +1,6 @@
 <% provide(:description, @post.description) %>
 <% provide(:keywords, @post.keywords) %>
+<% provide(:cover, image_tag(@post.featured_image.cover.url, id: "cover-image", class: "ui fluid image")) %>
 
 <div class="ui breadcrumb">
   <%= link_to_active "Home", root_path, class: "section" %>

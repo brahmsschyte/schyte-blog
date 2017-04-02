@@ -2,7 +2,27 @@
 
 **schyte-blog** is a simple blog and portfolio CMS built with ruby on rails and semantic-ui.
 
+Visit [Ketapot](http://ketapot.com/)
+
+Running in Development
+-------
 See it Live at: [Demo](https://fierce-journey-42946.herokuapp.com/)
+
+You can login to the demo admin page with this account.
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Password</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>admin@example.com</td>
+      <td>admin123</td>
+    </tr>
+  </tbody>
+</table>
 
 Running in Development
 -------

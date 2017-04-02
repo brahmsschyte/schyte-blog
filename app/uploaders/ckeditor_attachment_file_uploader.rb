@@ -8,10 +8,13 @@ class CkeditorAttachmentFileUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
   # include CarrierWave::ImageScience
-  include Cloudinary::CarrierWave
 
   # Choose what kind of storage to use for this uploader:
-  # storage :file
+  if Rails.env.development?
+    storage :file
+  else
+    include Cloudinary::CarrierWave
+  end
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
