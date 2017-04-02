@@ -9,6 +9,9 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
+Dir.glob("#{Rails.root}/app/assets/images/**/").each do |path|
+  Rails.application.config.assets.paths << path
+end
 %w( application pages posts settings portfolios ).each do |c|
   Rails.application.config.assets.precompile += ["#{c}.coffee", "#{c}.scss"]
 end
