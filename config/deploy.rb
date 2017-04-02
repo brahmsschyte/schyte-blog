@@ -2,7 +2,7 @@
 lock "3.7.2"
 
 set :application, "schyte-blog"
-set :repo_url, "git@github.com:brahmsschyte/schyte-blog.git"
+set :repo_url, "https://github.com/brahmsschyte/schyte-blog.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
