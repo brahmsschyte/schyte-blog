@@ -4,7 +4,7 @@
 
 Visit [Ketapot](http://ketapot.com/)
 
-Running in Development
+Demo
 -------
 See it Live at: [Demo](https://fierce-journey-42946.herokuapp.com/)
 
