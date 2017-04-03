@@ -10,10 +10,10 @@ Rails.application.routes.draw do
     end
     resources :users
     get "/home", to: "pages#home", as: :home
+    root 'pages#home', as: :admin_root
   end
   mount Ckeditor::Engine => '/ckeditor'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get "/schyte-admin", to: "pages#home", as: :admin
   get "/blog/:id", to: "pages#blog_post", as: :blog_post
   get "/blog", to: "pages#blog", as: :blog
   get "/portfolio", to: "pages#portfolio", as: :portfolio
