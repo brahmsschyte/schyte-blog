@@ -12,8 +12,12 @@ Rails.application.config.assets.version = '1.0'
 Dir.glob("#{Rails.root}/app/assets/images/**/").each do |path|
   Rails.application.config.assets.paths << path
 end
+
 %w( application pages posts settings portfolios ).each do |c|
   Rails.application.config.assets.precompile += ["#{c}.coffee", "#{c}.scss"]
 end
 Rails.application.config.assets.precompile += %w( main.scss portfolio.scss scaffold.scss )
+
+Rails.application.config.assets.precompile += Ckeditor.assets
 Rails.application.config.assets.precompile += %w( ckeditor/* )
+Rails.application.config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
