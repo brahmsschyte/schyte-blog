@@ -69,7 +69,7 @@ gem 'pundit'
 
 gem 'ransack'
 gem 'kaminari'
-gem 'ckeditor'
+gem 'ckeditor', git: 'https://github.com/galetahub/ckeditor.git'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'cloudinary'
