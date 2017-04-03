@@ -17,6 +17,3 @@ end
   Rails.application.config.assets.precompile += ["#{c}.coffee", "#{c}.scss"]
 end
 Rails.application.config.assets.precompile += %w( main.scss portfolio.scss scaffold.scss )
-
-Rails.application.config.assets.precompile += Ckeditor.assets
-Rails.application.config.assets.precompile += %w( ckeditor/* )
