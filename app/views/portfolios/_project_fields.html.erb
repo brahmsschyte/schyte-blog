@@ -1,5 +1,7 @@
 <div class='nested-fields'>
+  <%= f.input :position %>
   <%= f.input :name %>
+  <%= f.input :timeline %>
   <%= f.input :info %>
   <%= f.input :featured_image, as: :file %>
   <%= link_to_remove_association "Remove Project", f, class: 'ui button' %>

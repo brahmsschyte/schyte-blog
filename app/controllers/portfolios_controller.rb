@@ -33,6 +33,6 @@ class PortfoliosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def portfolio_params
-      params.require(:portfolio).permit(:title, :description, :keywords, :photo, :name, :job, :overview, :email, :phone, :social, :address, :address_line1, :address_line2, skills_attributes: [:id, :name, :mastery, :info, :_destroy], projects_attributes: [:id, :name, :timeline, :info, :featured_image, :_destroy])
+      params.require(:portfolio).permit(:title, :description, :keywords, :photo, :name, :job, :overview, :email, :phone, :social, :address, :address_line1, :address_line2, skills_attributes: [:id, :position, :name, :mastery, :info, :_destroy], projects_attributes: [:id, :position, :name, :timeline, :info, :featured_image, :_destroy])
     end
 end

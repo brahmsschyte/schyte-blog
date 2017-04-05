@@ -1,6 +1,6 @@
 <% provide(:description, "Ketapot Blog") %>
 <% provide(:keywords, "ketapot, blog") %>
-<% provide(:cover, image_tag("blog_cover.png", id: "cover-image", class: "ui fluid image")) %>
+<% provide(:cover, image_tag(@posts.order("RANDOM()").last.featured_image.cover.url, id: "cover-image", class: "ui fluid image")) %>
 
 <div class="ui breadcrumb">
   <%= link_to_active "Home", root_path, class: "section" %>

@@ -12,6 +12,10 @@ class User < ApplicationRecord
 
   has_many :posts
 
+  validates :name, :title, :email, :password, presence: true
+  validates :name, length: { minimum: 6 }
+  validates :title, inclusion: { in: TITLE }
+
   def admin?
     title.include?('Administrator')
   end

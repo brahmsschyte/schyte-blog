@@ -14,6 +14,20 @@ user = User.create!( email: 'admin@example.com',
               title: 'Administrator',
               phone: '628123456789')
 
+user = User.create!( email: 'editor@example.com',
+              password: 'editor123',
+              password_confirmation: 'editor123',
+              name: 'Someone',
+              title: 'Editor',
+              phone: '628123456789')
+
+user = User.create!( email: 'author@example.com',
+              password: 'author123',
+              password_confirmation: 'author123',
+              name: 'Someone',
+              title: 'Author',
+              phone: '628123456789')
+
 Setting.delete_all
 Setting.create!(name: "Global",
                 config: {first_time: false,
@@ -44,56 +58,67 @@ portfolio = Portfolio.create!(slug: "main",
                   address_line2: "Somewhere")
 
 Skill.create!(name: "Skill 1",
+              position: 1,
               mastery: 86,
               info: nil,
               portfolio: portfolio)
 
 Skill.create!(name: "Skill 2",
+              position: 2,
               mastery: 88,
               info: nil,
               portfolio: portfolio)
 
 Skill.create!(name: "Skill 3",
+              position: 3,
               mastery: 75,
               info: nil,
               portfolio: portfolio)
 
 Skill.create!(name: "Skill 4",
+              position: 4,
               mastery: 70,
               info: nil,
               portfolio: portfolio)
 
 Skill.create!(name: "Skill 5",
+              position: 5,
               mastery: 76,
               info: nil,
               portfolio: portfolio)
 
 Skill.create!(name: "Skill 6",
+              position: 6,
               mastery: 81,
               info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
               portfolio: portfolio)
 
 Project.create!(name: "Project 1",
+                position: 1,
                 timeline: "2017",
                 info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
                 portfolio: portfolio)
 
 Project.create!(name: "Project 2",
+                position: 2,
                 timeline: "2017",
                 info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
                 portfolio: portfolio)
 
 Project.create!(name: "Project 3",
+                position: 3,
                 timeline: "2017",
                 info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
                 portfolio: portfolio)
 
 Project.create!(name: "Project 4",
+                position: 4,
                 timeline: "2017",
                 info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
                 portfolio: portfolio)
 
 Project.create!(name: "Project 5",
+                position: 5,
                 timeline: "2017",
                 info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
                 portfolio: portfolio)

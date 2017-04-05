@@ -13,6 +13,7 @@ class Post < ApplicationRecord
 
   validates :title, :body, :visibility, presence: true
   validates :title, length: { minimum: 6 }
+  validates :description, :keywords, length: { maximum: 255 }
   validates :body, length: { minimum: 256 }
   validates :visibility, inclusion: { in: VISIBILITY }
 

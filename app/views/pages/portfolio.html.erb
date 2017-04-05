@@ -68,7 +68,7 @@
 
     <div class="row">
       <div class="column">
-        <% @portfolio.skills.each do |skill| %>
+        <% @portfolio.skills.order(position: :asc).each do |skill| %>
           <a class="ui red ribbon label"><%= skill.name %></a>
           <div class="ui red indicating progress skill-bar" data-value="<%= skill.mastery %>" data-total="100" id="skill-<%= skill.name.parameterize %>">
             <div class="bar"></div>
@@ -83,7 +83,7 @@
     <div class="row">
       <div class="ui stackable grid">
 
-        <% @portfolio.projects.each do |project| %>
+        <% @portfolio.projects.order(position: :asc).each do |project| %>
           <div class="four wide column">
             <div class="ui link fluid card">
               <div class="image">

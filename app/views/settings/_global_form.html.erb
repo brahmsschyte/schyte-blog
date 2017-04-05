@@ -3,10 +3,22 @@
 
   <div class="form-inputs">
     <%= f.simple_fields_for :config, OpenStruct.new(@setting.config) do |ff| %>
-      <%= ff.input :site_title %>
-      <%= ff.input :site_description %>
-      <%= ff.input :site_keywords %>
-      <%= ff.input :site_footer %>
+      <%= ff.input :site_title do %>
+        <%= ff.input_field :site_title %>
+        <%= f.error :site_title %>
+      <% end %>
+      <%= ff.input :site_description do %>
+        <%= ff.input_field :site_description %>
+        <%= f.error :site_description %>
+      <% end %>
+      <%= ff.input :site_keywords do %>
+        <%= ff.input_field :site_keywords %>
+        <%= f.error :site_keywords %>
+      <% end %>
+      <%= ff.input :site_footer do %>
+        <%= ff.input_field :site_footer %>
+        <%= f.error :site_footer %>
+      <% end %>
       <%= ff.input :google_analytics_tracking_id %>
     <% end %>
   </div>
