@@ -77,7 +77,7 @@
       <th>Name</th>
       <th>Mastery</th>
       <th>Info</th>
-      <th colspan="4"></th>
+      <th colspan="5"></th>
     </tr>
   </thead>
 
@@ -105,7 +105,8 @@
       <th>Timeline</th>
       <th>Info</th>
       <th>Featured Image</th>
-      <th colspan="4"></th>
+      <th>URL</th>
+      <th colspan="7"></th>
     </tr>
   </thead>
 
@@ -117,6 +118,7 @@
         <td><%= project.timeline %></td>
         <td><%= truncate project.info %></td>
         <td><%= image_tag project.featured_image.url, class: "ui small image" %></td>
+        <td><%= project.url %></td>
       </tr>
     <% end %>
   </tbody>

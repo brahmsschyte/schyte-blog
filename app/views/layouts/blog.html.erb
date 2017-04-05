@@ -27,13 +27,12 @@
   <body>
     <%= render "shared/navbar" %>
     <div class="pusher">
-      <div class="ui grid container">
+      <div class="ui stackable grid container">
         <%= yield(:cover) %>
         <div class="thirteen wide column">
           <div class="ui fluid container">
             <%= render "shared/message" %>
             <%= yield %>
-            <%= debug(params) if Rails.env.development? %>
           </div>
         </div>
         <div class="three wide large screen only column">
@@ -41,6 +40,7 @@
         </div>
       </div>
       <%= render "shared/footer" %>
+      <%= debug(params) if Rails.env.development? %>
     </div>
   </body>
 </html>

@@ -97,30 +97,35 @@ Project.create!(name: "Project 1",
                 position: 1,
                 timeline: "2017",
                 info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                url: "#",
                 portfolio: portfolio)
 
 Project.create!(name: "Project 2",
                 position: 2,
                 timeline: "2017",
                 info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                url: "#",
                 portfolio: portfolio)
 
 Project.create!(name: "Project 3",
                 position: 3,
                 timeline: "2017",
                 info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                url: "#",
                 portfolio: portfolio)
 
 Project.create!(name: "Project 4",
                 position: 4,
                 timeline: "2017",
                 info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                url: "#",
                 portfolio: portfolio)
 
 Project.create!(name: "Project 5",
                 position: 5,
                 timeline: "2017",
                 info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                url: "#",
                 portfolio: portfolio)
 
 Post.delete_all

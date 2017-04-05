@@ -1,8 +1,8 @@
 <% provide(:description, @portfolio.description) %>
 <% provide(:keywords, @portfolio.keywords) %>
 
-<div id="content" class="ui vertical stripe segment"">
-  <div class="ui middle aligned stackable grid container">
+<div class="row">
+  <div class="column">
     <div class="ui breadcrumb">
       <%= link_to_active "Home", root_path, class: "section" %>
       <i class="right chevron icon divider"></i>
@@ -10,102 +10,112 @@
     </div>
 
     <div class="ui horizontal divider" style="margin-top: 0;"><h1><%= title @portfolio.title %></h1></div>
+  </div>
+</div>
 
-    <div class="row">
-      <div class="twelve wide column">
-        <div class="ui segment">
-          <div class="ui items">
-            <div class="item">
-              <div class="image">
-                <a class="ui left corner label">
-                  <i class="heart icon"></i>
-                </a>
-                <%= image_tag @portfolio.photo.url %>
-              </div>
-              <div class="content">
-                <a class="ui red right ribbon label">Overview</a>
-                <br />
-                <a class="header"><%= @portfolio.name %></a>
-                <div class="meta">
-                  <span class="cinema"><%= @portfolio.job %></span>
-                </div>
-                <div class="description">
-                  <%= @portfolio.overview.html_safe %>
-                </div>
-                <br />
-              </div>
-            </div>
+<div class="row">
+  <div class="twelve wide column">
+    <div class="ui segment">
+      <div class="ui items">
+        <div class="item">
+          <div class="image">
+            <a class="ui left corner label">
+              <i class="heart icon"></i>
+            </a>
+            <%= image_tag @portfolio.photo.url %>
           </div>
-          <div class="ui bottom attached label">
-            <div class="ui center aligned container">
-              <div class="ui horizontal link list">
-                <%= mail_to @portfolio.email, class: 'item' do %>
-                  <i class="mail icon"></i>
-                  <%= @portfolio.email %>
-                <% end %>
-                <a href="#" class="item"><i class="whatsapp icon"></i> <%= @portfolio.phone %></a>
-                <%= social_pick(@portfolio) %>
-              </div>
+          <div class="content">
+            <a class="ui red right ribbon label">Overview</a>
+            <br />
+            <a class="header"><%= @portfolio.name %></a>
+            <div class="meta">
+              <span class="cinema"><%= @portfolio.job %></span>
             </div>
+            <div class="description">
+              <%= @portfolio.overview.html_safe %>
+            </div>
+            <br />
           </div>
         </div>
       </div>
-
-      <div class="three wide right floated column">
-        <div class="ui segment">
-          <a class="ui red ribbon label">Address</a>
-          <address>
-            <strong><%= @portfolio.address %></strong><br>
-            <%= @portfolio.address_line1 %><br>
-            <%= @portfolio.address_line2 %><br>
-            <abbr title="Phone">P:</abbr> <%= @portfolio.phone %>
-          </address>
+      <div class="ui bottom attached label">
+        <div class="ui center aligned container">
+          <div class="ui horizontal link list">
+            <%= mail_to @portfolio.email, class: 'item' do %>
+              <i class="mail icon"></i>
+              <%= @portfolio.email %>
+            <% end %>
+            <a href="#" class="item"><i class="whatsapp icon"></i> <%= @portfolio.phone %></a>
+            <%= social_pick(@portfolio) %>
+          </div>
         </div>
-      </div>
-    </div>
-
-    <div class="ui horizontal divider">Skills</div>
-
-    <div class="row">
-      <div class="column">
-        <% @portfolio.skills.order(position: :asc).each do |skill| %>
-          <a class="ui red ribbon label"><%= skill.name %></a>
-          <div class="ui red indicating progress skill-bar" data-value="<%= skill.mastery %>" data-total="100" id="skill-<%= skill.name.parameterize %>">
-            <div class="bar"></div>
-          </div>
-          <%= content_tag :p, skill.info if skill.info %>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="ui horizontal divider">Projects</div>
-
-    <div class="row">
-      <div class="ui stackable grid">
-
-        <% @portfolio.projects.order(position: :asc).each do |project| %>
-          <div class="four wide column">
-            <div class="ui link fluid card">
-              <div class="image">
-                <%= image_tag project.featured_image.url %>
-              </div>
-              <div class="content">
-                <div class="header"><%= project.name %></div>
-                <div class="meta">
-                  <a><%= project.timeline %></a>
-                </div>
-                <div class="description">
-                  <%= project.info %>
-                </div>
-              </div>
-            </div>
-          </div>
-        <% end %>
-
       </div>
     </div>
   </div>
+
+  <div class="three wide right floated column">
+    <div class="ui segment">
+      <a class="ui red ribbon label">Address</a>
+      <address>
+        <strong><%= @portfolio.address %></strong><br>
+        <%= @portfolio.address_line1 %><br>
+        <%= @portfolio.address_line2 %><br>
+        <abbr title="Phone">P:</abbr> <%= @portfolio.phone %>
+      </address>
+    </div>
+  </div>
 </div>
+
+<div class="row">
+  <div class="column">
+    <div class="ui horizontal divider">Skills</div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    <% @portfolio.skills.order(position: :asc).each do |skill| %>
+      <a class="ui red ribbon label"><%= skill.name %></a>
+      <div class="ui red indicating progress skill-bar" data-value="<%= skill.mastery %>" data-total="100" id="skill-<%= skill.name.parameterize %>">
+        <div class="bar"></div>
+      </div>
+      <%= content_tag :p, skill.info if skill.info %>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    <div class="ui horizontal divider">Projects</div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    <div class="ui stackable grid">
+      <% @portfolio.projects.order(position: :asc).each do |project| %>
+        <div class="four wide column">
+          <div class="ui link fluid card" href="#">
+            <div class="image">
+              <%= image_tag project.featured_image.url %>
+            </div>
+            <div class="content">
+              <%= link_to project.name, (project.url.blank? ? "#" : project.url), class: 'header' %>
+              <div class="meta">
+                <a><%= project.timeline %></a>
+              </div>
+              <div class="description">
+                <%= project.info %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="ui divider"></div>
 
 <script>
   <% @portfolio.skills.each do |skill| %>
