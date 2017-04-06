@@ -16,4 +16,4 @@ end
 %w( application pages posts settings portfolios ).each do |c|
   Rails.application.config.assets.precompile += ["#{c}.coffee", "#{c}.scss"]
 end
-Rails.application.config.assets.precompile += %w( main.scss portfolio.scss scaffold.scss )
+Rails.application.config.assets.precompile += %w( main.scss portfolio.scss scaffold.scss home.coffee )
