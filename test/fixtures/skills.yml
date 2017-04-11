@@ -1,11 +1,43 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+one:
+  name: Skill 1
+  position: 1
+  mastery: 86
+  info: nil
+  portfolio: one
+
+two:
+  name: Skill 2
+  position: 2
+  mastery: 88
+  info: nil
+  portfolio: one
+
+three:
+  name: Skill 3
+  position: 3
+  mastery: 75
+  info: nil
+  portfolio: one
+
+four:
+  name: Skill 4
+  position: 4
+  mastery: 70
+  info: nil
+  portfolio: one
+
+five:
+  name: Skill 5
+  position: 5
+  mastery: 76
+  info: nil
+  portfolio: one
+
+six:
+  name: Skill 6
+  position: 6
+  mastery: 81
+  info: Lorem ipsum dolor sit amet consectetur adipiscing elit.
+  portfolio: one

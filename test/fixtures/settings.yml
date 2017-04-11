@@ -1,9 +1,28 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  config: 
-
-two:
-  name: MyString
-  config: 
+global:
+  name: Global
+  slug: global
+  config:
+    first_time: false
+    site_title: Schyte Blog
+    site_description: Schyte Blog
+    site_keywords: schyte, blog
+    google_analytics_tracking_id: UA-XXXXXXXX-X
+    site_footer: Schyte Blog. Built with Ruby on Rails & Semantic UI.
+social:
+  name: Social
+  slug: social
+  config:
+    email: someone@example.com
+    whatsup: +62-812-345-6789
+    network:
+      github:
+        handle: github
+        url: https://github.com
+      facebook:
+        handle: facebook
+        url: https://facebook.com
+      twitter:
+        handle: twitter
+        url: https://twitter.com

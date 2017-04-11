@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   scope 'schyte-admin' do
     resources :posts
-    resources :portfolios, as: :profiles, only: [:index, :show, :edit, :update]
-    resources :settings, except: [:new, :create, :destroy]
+    resources :portfolios, as: :profiles, only: [:show, :edit, :update]
+    resources :settings, only: [:edit, :update]
     devise_for :users, skip: [:registrations]
     as :user do
       get "users/edit", to: "devise/registrations#edit", as: :edit_user_registration

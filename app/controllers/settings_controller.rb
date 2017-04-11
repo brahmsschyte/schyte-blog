@@ -1,5 +1,5 @@
 class SettingsController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
   before_action :authorize_user
   before_action :set_setting, only: [:edit, :update]
 
@@ -19,15 +19,16 @@ class SettingsController < ApplicationController
   end
 
   private
-    def set_setting
-      @setting = Setting.friendly.find(params[:id])
-    end
 
-    def setting_params
-      params.require(:setting).permit(config: [:site_title, :site_description, :site_keywords, :site_footer, :google_analytics_tracking_id, :email, :whatsup, network: [github: [:handle, :url], facebook: [:handle, :url], twitter: [:handle, :url]]])
-    end
+  def set_setting
+    @setting = Setting.friendly.find(params[:id])
+  end
 
-    def authorize_user
-      authorize Setting
-    end
+  def setting_params
+    params.require(:setting).permit(config: [:site_title, :site_description, :site_keywords, :site_footer, :google_analytics_tracking_id, :email, :whatsup, network: [github: [:handle, :url], facebook: [:handle, :url], twitter: [:handle, :url]]])
+  end
+
+  def authorize_user
+    authorize Setting
+  end
 end

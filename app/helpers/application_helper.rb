@@ -8,13 +8,13 @@ module ApplicationHelper
   def message_icon(code)
     case code.to_s
     when 'success'
-      "<i class='checkmark icon'></i>".html_safe
+      content_tag :i, nil, class: 'checkmark icon'
     when 'warning'
-      "<i class='warning icon'></i>".html_safe
+      content_tag :i, nil, class: 'warning icon'
     when 'error'
-      "<i class='warning sign icon'></i>".html_safe
+      content_tag :i, nil, class: 'warning icon'
     when 'notice'
-      "<i class='info icon'></i>".html_safe
+      content_tag :i, nil, class: 'info icon'
     end
   end
 

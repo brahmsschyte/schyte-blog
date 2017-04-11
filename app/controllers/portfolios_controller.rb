@@ -1,5 +1,5 @@
 class PortfoliosController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
   before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
 
   # GET /portfolios/1
@@ -26,13 +26,14 @@ class PortfoliosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_portfolio
-      @portfolio = Portfolio.friendly.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def portfolio_params
-      params.require(:portfolio).permit(:title, :description, :keywords, :photo, :name, :job, :overview, :email, :phone, :social, :address, :address_line1, :address_line2, skills_attributes: [:id, :position, :name, :mastery, :info, :_destroy], projects_attributes: [:id, :position, :name, :timeline, :info, :featured_image, :url, :_destroy])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_portfolio
+    @portfolio = Portfolio.friendly.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def portfolio_params
+    params.require(:portfolio).permit(:title, :description, :keywords, :photo, :name, :job, :overview, :email, :phone, :social, :address, :address_line1, :address_line2, skills_attributes: [:id, :position, :name, :mastery, :info, :_destroy], projects_attributes: [:id, :position, :name, :timeline, :info, :featured_image, :url, :_destroy])
+  end
 end

@@ -1,5 +1,5 @@
 class Portfolio < ApplicationRecord
-  SOCIAL = %w{ github facebook twitter }
+  SOCIAL = %w[github facebook twitter].freeze
 
   extend FriendlyId
   friendly_id :name, use: :slugged
@@ -14,6 +14,7 @@ class Portfolio < ApplicationRecord
   validates :title, :name, :job, :overview, :email, :address, :address_line1, presence: true
   validates :title, :name, :job, :address, :address_line1, length: { minimum: 6 }
   validates :description, :keywords, length: { maximum: 255 }
+  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, message: "is not an email" }
   validates :overview, length: { minimum: 128 }
   validates :social, inclusion: { in: SOCIAL }
 end

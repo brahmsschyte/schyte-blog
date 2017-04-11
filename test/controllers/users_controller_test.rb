@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
+    sign_in users(:one)
     @user = users(:one)
   end
 
@@ -17,7 +20,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create user" do
     assert_difference('User.count') do
-      post users_url, params: { user: {  } }
+      post users_url, params: { user: { name: @user.name, title: @user.title, phone: @user.phone, telegram: @user.telegram, email: 'example@example.com', password: 'password', password_confirmation: 'password' } }
     end
 
     assert_redirected_to user_url(User.last)
@@ -34,8 +37,8 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update user" do
-    patch user_url(@user), params: { user: {  } }
-    assert_redirected_to user_url(@user)
+    patch user_url(@user), params: { user: { title: @user.title } }
+    assert_redirected_to user_url(User.last)
   end
 
   test "should destroy user" do

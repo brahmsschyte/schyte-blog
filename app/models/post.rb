@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  VISIBILITY = %w{ Public Private }
+  VISIBILITY = %w[Public Private].freeze
 
   extend FriendlyId
   friendly_id :title, use: :slugged
@@ -8,7 +8,7 @@ class Post < ApplicationRecord
 
   mount_uploader :featured_image, ImageUploader
 
-  scope :published, -> { where("draft = '#{false}' and published_at <= '#{Time.zone.now}'") }
+  scope :published, -> { where('draft = ? and published_at <= ?', false, Time.zone.now) }
   scope :recent, -> { order(published_at: :desc).limit(5) }
 
   validates :title, :body, :visibility, presence: true
@@ -20,11 +20,12 @@ class Post < ApplicationRecord
   max_paginates_per 10
 
   private
-    def should_generate_new_friendly_id?
-      if slug.blank? || title_changed?
-        true
-      else
-        false
-      end
+
+  def should_generate_new_friendly_id?
+    if slug.blank? || title_changed?
+      true
+    else
+      false
     end
+  end
 end

@@ -2,16 +2,48 @@
 
 one:
   title: Lorem Ipsum
-  body: <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  tags: Lorem, Ipsum
+  slug: lorem-ipsum
+  body: <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  tags: Lorem Ipsum
   visibility: Public
   draft: false
   published_at: <%= Time.zone.now.tomorrow %>
+  description: Lorem Ipsum
+  keywords: lorem ipsum
+  user: one
 
 two:
   title: Lorem Ipsum Dolor
-  body: <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  tags: Lorem, Ipsum, Dolor
+  slug: lorem-ipsum-dolor
+  body: <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  tags: Lorem Ipsum Dolor
   visibility: Private
   draft: true
   published_at: <%= Time.zone.now.tomorrow %>
+  description: Lorem Ipsum
+  keywords: lorem ipsum
+  user: one
+
+three:
+  title: Lorem Ipsum Dolor Sit
+  slug: lorem-ipsum-dolor-sit
+  body: <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  tags: Lorem Ipsum Dolor Sit
+  visibility: Public
+  draft: false
+  published_at: <%= Time.zone.now.tomorrow %>
+  description: Lorem Ipsum
+  keywords: lorem ipsum
+  user: one
+
+four:
+  title: Lorem Ipsum Dolor Sit Amet
+  slug: lorem-ipsum-dolor-sit-amet
+  body: <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  tags: Lorem Ipsum Dolor Sit Amet
+  visibility: Public
+  draft: false
+  published_at: <%= Time.zone.now.tomorrow %>
+  description: Lorem Ipsum
+  keywords: lorem ipsum
+  user: one

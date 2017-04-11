@@ -32,11 +32,12 @@ module SettingsHelper
   end
 
   private
-    def global
-      @global = Setting.friendly.find('global')
-    end
 
-    def social
-      @socila = Setting.friendly.find('social')
-    end
+  def global
+    @global = Setting.friendly.find('global')
+  end
+
+  def social
+    @socila = Setting.friendly.find('social')
+  end
 end

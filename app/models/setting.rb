@@ -5,7 +5,7 @@ class Setting < ApplicationRecord
   validate :validate_global_setting
 
   def validate_global_setting
-    if name == 'Global'
+    if name == 'Global' && config.present?
       config.each do |key,value|
         case key
         when 'site_title'
@@ -38,6 +38,9 @@ class Setting < ApplicationRecord
           end
         end
       end
+    elsif config.present?
+    else
+      errors.add(:config, "Config can't be all blank")
     end
   end
 
