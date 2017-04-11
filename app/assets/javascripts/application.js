@@ -17,6 +17,7 @@
 //= require semantic_ui/semantic_ui
 //= require turbolinks
 // require_tree .
+/* global ga */
 
 $(document).on("turbolinks:load", function(event) {
   $(".ui.dropdown").dropdown();

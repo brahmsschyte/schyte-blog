@@ -46,7 +46,7 @@ Running in Development
 
 Todo
 -------
- 1. Write test.
+ 1. Write integration test.
 
 License
 -------

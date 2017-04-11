@@ -14,14 +14,14 @@ user = User.create!( email: 'admin@example.com',
               title: 'Administrator',
               phone: '628123456789')
 
-user = User.create!( email: 'editor@example.com',
+User.create!( email: 'editor@example.com',
               password: 'editor123',
               password_confirmation: 'editor123',
               name: 'Someone',
               title: 'Editor',
               phone: '628123456789')
 
-user = User.create!( email: 'author@example.com',
+User.create!( email: 'author@example.com',
               password: 'author123',
               password_confirmation: 'author123',
               name: 'Someone',
