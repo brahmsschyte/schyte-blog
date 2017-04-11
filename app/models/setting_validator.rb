@@ -13,7 +13,7 @@ class SettingValidator < ActiveModel::Validator
     record.config.each do |key, value|
       case key
       when 'site_title'
-        combined_validator(record, key, value, 6)
+        minimum_validator(record, key, value, 6)
       when 'site_description'
         maximum_validator(record, key, value, 255)
       when 'site_keywords'
@@ -24,21 +24,21 @@ class SettingValidator < ActiveModel::Validator
     end
   end
 
-  def combined_validator(record, key, value, limit)
-    unless value.present?
-      record.errors.add(key.to_sym, "#{key.humanize} can't be blank")
+  def minimum_validator(record, key, value, limit)
+    if value.present?
+      return unless value.size < limit
+      record.errors.add(key.to_sym, "#{key.humanize} is too short (minimum is #{limit} characters)")
     else
-      minimum_validator(record, key, value, limit)
+      record.errors.add(key.to_sym, "#{key.humanize} can't be blank")
     end
   end
 
-  def minimum_validator(record, key, value, limit)
-    return unless value.size < limit
-    record.errors.add(key.to_sym, "#{key.humanize} is too short (minimum is #{limit} characters)")
-  end
-
   def maximum_validator(record, key, value, limit)
-    return unless value.size > limit
-    record.errors.add(key.to_sym, "#{key.humanize} is too long (maximum is #{limit} characters)")
+    if value.present?
+      return unless value.size > limit
+      record.errors.add(key.to_sym, "#{key.humanize} is too long (maximum is #{limit} characters)")
+    else
+      record.errors.add(key.to_sym, "#{key.humanize} can't be blank")
+    end
   end
 end
